@@ -1,15 +1,21 @@
 import React from "react";
-import { StyleSheet, View, Image } from "react-native";
+import { StyleSheet, View, Image, TouchableOpacity, Text } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
+import { createAppContainer, createStackNavigator } from "react-navigation"; // Version can be specified in package.json
+import EntrarScreen from "./src/components/EntrarScreen";
+import CadastrarScreen from "./src/components/CadastrarScreen";
 
 const Logo = require("./imgs/logo_petdoo.png");
-const btnOk = require("./imgs/btnOk.png");
-const btnNaoAzul = require("./imgs/btnNaoAzul.png");
-const lopi = require("./imgs/lopi.png");
+const Login = require("./imgs/login.png");
+const CadastrarIMG = require("./imgs/cadastrar.png");
+const HomePNG = require("./imgs/home.png");
 const Patinhas = require("./imgs/patinhas.png");
-const telainicial6 = require("./imgs/telainicial6.png");
 
-export default class App extends React.Component {
+class HomeScreen extends React.Component {
+  static navigationOptions = {
+    headerTransparent: true,
+  };
+
   render() {
     return (
       <View style={{ flex: 1 }}>
@@ -19,10 +25,30 @@ export default class App extends React.Component {
           source={Logo}
           style={{ position: "absolute", left: "15%", top: "10%" }}
         />
-          <Image source={telainicial6} style={{ position:'absolute', top:'46%', left:'12.5%'}} />
-          <Image source={btnOk} style={{ position:'absolute', top:'75%', left:'35%',}}/>
-          <Image source={btnNaoAzul} style={{ position:'absolute', top:'87.5%', left:'55%',}}/>
-          <Image source={lopi} style={{ position:'absolute', top:'75%', left:'10%' }}/>
+        <Image
+          source={HomePNG}
+          style={{ position: "absolute", left: "15%", top: "55%" }}
+        />
+
+        <TouchableOpacity
+          activeOpacity={1.0}
+          accessible={true}
+          accessibilityLabel="Botao Entrar"
+          style={{ left: "37.5%", top: "65%", position: "absolute" }}
+          onPress={() => this.props.navigation.navigate("Entrar")}
+        >
+          <Image source={Login} />
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          activeOpacity={1.0}
+          accessible={true}
+          accessibilityLabel="Botao Cadastrar"
+          style={{ position: "absolute", left: "30%", top: "75%" }}
+          onPress={() => this.props.navigation.navigate("Cadastrar")}
+        >
+          <Image source={CadastrarIMG} />
+        </TouchableOpacity>
       </View>
     );
   }
@@ -35,14 +61,32 @@ const styles = StyleSheet.create({
     resizeMode: "cover",
     width: "100%",
     height: "100%"
-  },
-  campo2:{
-    flexDirection:'row',
-    alignItems:"center"
-  },
-  campo3:{
-    
   }
 
   // rest of the styles
 });
+
+const RootStack = createStackNavigator(
+  {
+    Home: {
+      screen: HomeScreen
+    },
+    Entrar: {
+      screen: EntrarScreen
+    },
+    Cadastrar: {
+      screen: CadastrarScreen
+    }
+  },
+  {
+    initialRouteName: "Home"
+  }
+);
+
+const AppContainer = createAppContainer(RootStack);
+
+export default class App extends React.Component {
+  render() {
+    return <AppContainer />;
+  }
+}

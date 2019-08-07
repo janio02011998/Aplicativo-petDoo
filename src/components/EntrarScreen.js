@@ -1,7 +1,7 @@
 import React from "react";
-import { Text, View, Image, StyleSheet, TextInput } from "react-native";
+import { View, Image, StyleSheet, TextInput } from "react-native";
 
-const Logo = require("../.../../imgs/logo_petdoo.png");
+const Logo = require("../../imgs/logo_petdoo.png");
 const PatinhasRosa = require("../../imgs/patinhas_rosa.png");
 const backEntrar = require("../../imgs/backEntrar.png");
 const btnFacebook = require("../../imgs/btnFacebook.png");
@@ -11,7 +11,11 @@ const btnEntrar = require("../../imgs/btnEntrar.png");
 const email = require("../../imgs/email.png");
 const key = require("../../imgs/key.png");
 
-export default class Entrar extends React.Component {
+export default class EntrarScreen extends React.Component {
+  static navigationOptions = {
+    headerTransparent: true,
+  };
+
   render() {
     return (
       <View style={styles.container}>

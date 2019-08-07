@@ -16,7 +16,11 @@ const cidade = require("../../imgs/cidade.png");
 const estado = require("../../imgs/estado.png");
 const foto = require("../../imgs/foto.png");
 
-export default class Cadastrar extends React.Component {
+export default class CadastrarScreen extends React.Component {
+  static navigationOptions = {
+    headerTransparent: true,
+  };
+
   constructor(props) {
     super(props);
     this.state = {
