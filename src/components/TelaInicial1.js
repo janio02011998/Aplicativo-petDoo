@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, View, Image } from "react-native";
+import { StyleSheet, View, Image, TouchableOpacity } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 
 const Logo = require("../../imgs/logo_petdoo.png");
@@ -10,6 +10,9 @@ const Patinhas = require("../../imgs/patinhas.png");
 const telainicial1 = require("../../imgs/telainicial1.png");
 
 export default class App extends React.Component {
+  static navigationOptions = {
+    headerTransparent: true,
+  };
   render() {
     return (
       <View style={{ flex: 1 }}>
@@ -20,7 +23,15 @@ export default class App extends React.Component {
           style={{ position: "absolute", left: "15%", top: "10%" }}
         />
           <Image source={telainicial1} style={{ position:'absolute', top:'47.5%', left:'8%'}} />
-          <Image source={btnSeta} style={{ position:'absolute', top:'65%', right:'10%',}}/>
+          <TouchableOpacity
+            activeOpacity={1.0}
+            accessible={true}
+            style={{ position:'absolute', top:'65%', right:'10%'}}
+            accessibilityLabel="Olá, bem vindo ao Petdoo! Meu nome é lola, sou expert em dormir e em comer sachês"
+            onPress={() => this.props.navigation.navigate("Lola2")}
+          >
+          <Image source={btnSeta}/>
+          </TouchableOpacity>
           <Image source={lola} style={{ position:'absolute', top:'75%', right:'10%' }}/>
       </View>
     );

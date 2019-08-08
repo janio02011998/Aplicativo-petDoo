@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, View, Image } from "react-native";
+import { StyleSheet, View, Image, TouchableOpacity } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 
 const Logo = require("../../imgs/logo_petdoo.png");
@@ -10,6 +10,9 @@ const Patinhas = require("../../imgs/patinhas.png");
 const telainicial2 = require("../../imgs/telainicial2.png");
 
 export default class App extends React.Component {
+  static navigationOptions = {
+    headerTransparent: true,
+  };
   render() {
     return (
       <View style={{ flex: 1 }}>
@@ -19,9 +22,25 @@ export default class App extends React.Component {
           source={Logo}
           style={{ position: "absolute", left: "15%", top: "10%" }}
         />
-          <Image source={telainicial2} style={{ position:'absolute', top:'47.5%', left:'8%'}} />
-          <Image source={btnSeta} style={{ position:'absolute', top:'65%', right:'10%',}}/>
-          <Image source={lola} style={{ position:'absolute', top:'75%', right:'10%' }}/>
+        <Image
+          source={telainicial2}
+          style={{ position: "absolute", top: "47.5%", left: "8%" }}
+        />
+        <TouchableOpacity
+          activeOpacity={1.0}
+          accessible={true}
+          accessibilityLabel="Os criadores do petDoo me contraram para ficar por aqui conversando e ajudando vocês "
+          style={{ position: "absolute", top: "65%", right: "10%" }}
+          onPress={() => this.props.navigation.navigate("Lola3")}
+        >
+          <Image
+            source={btnSeta}
+          />
+        </TouchableOpacity>
+        <Image
+          source={lola}
+          style={{ position: "absolute", top: "75%", right: "10%" }}
+        />
       </View>
     );
   }
@@ -35,13 +54,11 @@ const styles = StyleSheet.create({
     width: "100%",
     height: "100%"
   },
-  campo2:{
-    flexDirection:'row',
-    alignItems:"center"
+  campo2: {
+    flexDirection: "row",
+    alignItems: "center"
   },
-  campo3:{
-    
-  }
+  campo3: {}
 
   // rest of the styles
 });

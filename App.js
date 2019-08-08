@@ -4,6 +4,13 @@ import { LinearGradient } from "expo-linear-gradient";
 import { createAppContainer, createStackNavigator } from "react-navigation"; // Version can be specified in package.json
 import EntrarScreen from "./src/components/EntrarScreen";
 import CadastrarScreen from "./src/components/CadastrarScreen";
+import TelaEscolherScreen from './src/components/TelaEscolher';
+import TelaOng from './src/components/TelaInicial4';
+import TelaApadrinhar from './src/components/TelaInicial1';
+import TelaInicial2 from './src/components/TelaInicial2';
+import TelaInicial3 from './src/components/TelaInicial3';
+import TelaInicial5 from './src/components/TelaInicial5';
+import TelaInicial6 from './src/components/TelaInicial6';
 
 const Logo = require("./imgs/logo_petdoo.png");
 const Login = require("./imgs/login.png");
@@ -76,6 +83,27 @@ const RootStack = createStackNavigator(
     },
     Cadastrar: {
       screen: CadastrarScreen
+    }, 
+    TelaEscolher:{
+      screen: TelaEscolherScreen
+    },
+    ONG:{
+      screen: TelaOng
+    },
+    QueroApadrinhar:{
+      screen: TelaApadrinhar
+    },
+    Lola2:{ 
+      screen: TelaInicial2
+    },
+    Lola3:{
+      screen: TelaInicial3
+    },
+    Lopi2:{
+      screen: TelaInicial5
+    },
+    Lopi3:{
+      screen: TelaInicial6
     }
   },
   {

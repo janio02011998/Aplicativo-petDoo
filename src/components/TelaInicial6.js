@@ -10,6 +10,9 @@ const Patinhas = require("../../imgs/patinhas.png");
 const telainicial6 = require("../../imgs/telainicial6.png");
 
 export default class TelaInicial6 extends React.Component {
+  static navigationOptions = {
+    headerTransparent: true,
+  };
   render() {
     return (
       <View style={{ flex: 1 }}>

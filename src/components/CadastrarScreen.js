@@ -1,5 +1,12 @@
 import React from "react";
-import { Picker, View, Image, StyleSheet, TextInput } from "react-native";
+import {
+  Picker,
+  View,
+  Image,
+  StyleSheet,
+  TextInput,
+  TouchableOpacity
+} from "react-native";
 
 const Logo = require("../../imgs/logo_petdoo.png");
 const PatinhasRosa = require("../../imgs/patinhas_rosa.png");
@@ -18,11 +25,11 @@ const foto = require("../../imgs/foto.png");
 
 export default class CadastrarScreen extends React.Component {
   static navigationOptions = {
-    headerTransparent: true,
+    headerTransparent: true
   };
 
   constructor(props) {
-    super(props);
+      super(props);
     this.state = {
       estado: "",
       cidade: ""
@@ -34,7 +41,7 @@ export default class CadastrarScreen extends React.Component {
       <View style={styles.container}>
         <Image source={PatinhasRosa} style={styles.patinhasrosas} />
         <View style={styles.Campo1}>
-          <Image source={backEntrar}  />
+          <Image source={backEntrar} />
           <Image source={Logo} style={styles.logo} />
           <Image source={foto} style={styles.foto} />
         </View>
@@ -85,8 +92,8 @@ export default class CadastrarScreen extends React.Component {
             />
           </View>
 
-          <View style={{flexDirection:'column'}}>
-            <View style={{flexDirection:'row', right:'65.5%'}}>
+          <View style={{ flexDirection: "column" }}>
+            <View style={{ flexDirection: "row", right: "65.5%" }}>
               <Image source={estado} />
               <Picker
                 placeholder="Estado"
@@ -101,7 +108,7 @@ export default class CadastrarScreen extends React.Component {
                 <Picker.Item label="Recife" value="RE" />
               </Picker>
             </View>
-            <View style={{flexDirection:'row', right:'65.5%'}}>
+            <View style={{ flexDirection: "row", right: "65.5%" }}>
               <Image source={cidade} />
               <Picker
                 placeholder="Estado"
@@ -118,7 +125,15 @@ export default class CadastrarScreen extends React.Component {
             </View>
           </View>
 
-          <Image source={btnProximo} style={styles.login2} />
+          <TouchableOpacity
+            activeOpacity={1.0}
+            accessible={true}
+            accessibilityLabel="Botao Proximo"
+            style={styles.login2}
+            onPress={() => this.props.navigation.navigate("TelaEscolher")}
+          >
+            <Image source={btnProximo}  />
+          </TouchableOpacity>
         </View>
 
         <View style={styles.Campo3}>
@@ -141,7 +156,7 @@ const styles = StyleSheet.create({
     flex: 3,
     flexDirection: "column",
     alignItems: "center",
-    top: "15%",
+    top: "15%"
   },
   Campo1: {
     flex: 1,
@@ -168,13 +183,13 @@ const styles = StyleSheet.create({
   login2: {
     margin: 10
   },
-  foto:{
-    position:'absolute',
+  foto: {
+    position: "absolute",
     width: "85%",
     height: "85%",
-    resizeMode: "contain", 
-    top:'80%',
-    left:'12.5%'
+    resizeMode: "contain",
+    top: "80%",
+    left: "12.5%"
   },
   logo: {
     position: "absolute",
@@ -200,3 +215,14 @@ const styles = StyleSheet.create({
 
   // rest of the styles
 });
+
+
+// const RootStack = createStackNavigator(
+//   {
+//     TelaEscolher: {
+//       screen: TelaEscolherScreen
+//     },
+//   },
+// );
+
+// const AppContainer = createAppContainer(RootStack);

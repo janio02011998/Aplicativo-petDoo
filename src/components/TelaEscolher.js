@@ -1,5 +1,5 @@
 import React from "react";
-import { Picker, View, Image, StyleSheet, TextInput } from "react-native";
+import { TouchableOpacity, View, Image, StyleSheet } from "react-native";
 
 const Logo = require("../../imgs/logo_petdoo.png");
 const PatinhasRosa = require("../../imgs/patinhas_rosa.png");
@@ -9,24 +9,48 @@ const ong = require("../../imgs/ong.png");
 const queroApadrinhar = require("../../imgs/queroApadrinhar.png");
 const como_podemos_ajudar = require("../../imgs/como_podemos_ajudar.png");
 
-
 export default class TelaEscolher extends React.Component {
+  static navigationOptions = {
+    headerTransparent: true
+  };
   render() {
     return (
       <View style={styles.container}>
         <Image source={PatinhasRosa} style={styles.patinhasrosas} />
         <View style={styles.Campo1}>
           <Image source={backEntrar} />
-          <Image source={como_podemos_ajudar} style={{ position:'absolute', left: "30%", width:'50%', height:'40%', resizeMode:'contain'}}/>
+          <Image
+            source={como_podemos_ajudar}
+            style={{
+              position: "absolute",
+              left: "30%",
+              width: "50%",
+              height: "40%",
+              resizeMode: "contain"
+            }}
+          />
           <Image source={Logo} style={styles.logo} />
           <Image source={foto} style={styles.foto} />
         </View>
 
         <View style={styles.Campo2}>
-          <Image source={ong} />
-          <Image source={queroApadrinhar} />
+          <TouchableOpacity
+            activeOpacity={1.0}
+            accessible={true}
+            accessibilityLabel="Sou uma ONG"
+            onPress={() => this.props.navigation.navigate("ONG")}
+          >
+            <Image source={ong} />
+          </TouchableOpacity>
+          <TouchableOpacity
+            activeOpacity={1.0}
+            accessible={true}
+            accessibilityLabel="Quero Apadrinhar"
+            onPress={() => this.props.navigation.navigate("QueroApadrinhar")}
+          >
+            <Image source={queroApadrinhar} />
+          </TouchableOpacity>
         </View>
-
       </View>
     );
   }
