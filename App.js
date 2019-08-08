@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, View, Image, TouchableOpacity, Text } from "react-native";
+import { StyleSheet, View, Image, TouchableOpacity } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import { createAppContainer, createStackNavigator } from "react-navigation"; // Version can be specified in package.json
 import EntrarScreen from "./src/components/EntrarScreen";
@@ -11,6 +11,8 @@ import TelaInicial2 from './src/components/TelaInicial2';
 import TelaInicial3 from './src/components/TelaInicial3';
 import TelaInicial5 from './src/components/TelaInicial5';
 import TelaInicial6 from './src/components/TelaInicial6';
+import LoginLola1 from './src/components/LoginLola1';
+import LoginLopi1 from './src/components/LoginLopi1';
 
 const Logo = require("./imgs/logo_petdoo.png");
 const Login = require("./imgs/login.png");
@@ -104,6 +106,12 @@ const RootStack = createStackNavigator(
     },
     Lopi3:{
       screen: TelaInicial6
+    },
+    LoginLola: {
+      screen: LoginLola1
+    },
+    LoginLopi:{
+      screen: LoginLopi1
     }
   },
   {

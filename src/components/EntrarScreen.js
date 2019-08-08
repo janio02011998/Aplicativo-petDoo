@@ -1,5 +1,11 @@
 import React from "react";
-import { View, Image, StyleSheet, TextInput } from "react-native";
+import {
+  View,
+  Image,
+  StyleSheet,
+  TextInput,
+  TouchableOpacity
+} from "react-native";
 
 const Logo = require("../../imgs/logo_petdoo.png");
 const PatinhasRosa = require("../../imgs/patinhas_rosa.png");
@@ -13,7 +19,7 @@ const key = require("../../imgs/key.png");
 
 export default class EntrarScreen extends React.Component {
   static navigationOptions = {
-    headerTransparent: true,
+    headerTransparent: true
   };
 
   render() {
@@ -28,12 +34,20 @@ export default class EntrarScreen extends React.Component {
         <View style={styles.Campo2}>
           <View style={styles.Emailkey}>
             <Image source={email} />
-            <TextInput style={styles.login} placeholder=" e-mail" placeholderTextColor='#1777AB'/>
+            <TextInput
+              style={styles.login}
+              placeholder=" e-mail"
+              placeholderTextColor="#1777AB"
+            />
           </View>
 
           <View style={styles.Emailkey}>
             <Image source={key} />
-            <TextInput style={styles.login} placeholder=" ********" placeholderTextColor='#1777AB'/>
+            <TextInput
+              style={styles.login}
+              placeholder=" ********"
+              placeholderTextColor="#1777AB"
+            />
           </View>
 
           <Image source={recuperar_senha} style={styles.login2} />
@@ -41,8 +55,24 @@ export default class EntrarScreen extends React.Component {
         </View>
 
         <View style={styles.Campo3}>
-          <Image source={btnFacebook} style={styles.btnFaceGoogle} />
-          <Image source={btnGoogle} style={styles.btnFaceGoogle} />
+          <TouchableOpacity
+            activeOpacity={1.0}
+            accessible={true}
+            accessibilityLabel="Botao Cadastrar"
+            style={styles.btnFaceGoogle}
+            onPress={() => this.props.navigation.navigate("LoginLola")}
+          >
+            <Image source={btnFacebook} />
+          </TouchableOpacity>
+          <TouchableOpacity
+            activeOpacity={1.0}
+            accessible={true}
+            accessibilityLabel="Botao Cadastrar"
+            style={styles.btnFaceGoogle}
+            onPress={() => this.props.navigation.navigate("LoginLopi")}
+          >
+            <Image source={btnGoogle}  />
+          </TouchableOpacity>
         </View>
       </View>
     );
@@ -54,6 +84,7 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: "row",
     alignItems: "center",
+    left:'6%',
     justifyContent: "space-around"
   },
   Campo2: {
