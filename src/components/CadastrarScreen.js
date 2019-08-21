@@ -5,7 +5,8 @@ import {
   Image,
   StyleSheet,
   TextInput,
-  TouchableOpacity
+  TouchableOpacity,
+  KeyboardAvoidingView
 } from "react-native";
 
 const Logo = require("../../imgs/logo_petdoo.png");
@@ -29,7 +30,7 @@ export default class CadastrarScreen extends React.Component {
   };
 
   constructor(props) {
-      super(props);
+    super(props);
     this.state = {
       estado: "",
       cidade: ""
@@ -46,96 +47,97 @@ export default class CadastrarScreen extends React.Component {
           <Image source={foto} style={styles.foto} />
         </View>
 
-        <View style={styles.Campo2}>
-          <View style={styles.Formulario}>
-            <Image source={email} />
-            <TextInput
-              style={styles.login}
-              placeholder=" e-mail"
-              placeholderTextColor="#1777AB"
-            />
-          </View>
-
-          <View style={styles.Formulario}>
-            <Image source={nome} />
-            <TextInput
-              style={styles.login}
-              placeholder=" nome/razão social"
-              placeholderTextColor="#1777AB"
-            />
-          </View>
-
-          <View style={styles.Formulario}>
-            <Image source={key} />
-            <TextInput
-              style={styles.login}
-              placeholder=" senha"
-              placeholderTextColor="#1777AB"
-            />
-          </View>
-
-          <View style={styles.Formulario}>
-            <Image source={key2} />
-            <TextInput
-              style={styles.login}
-              placeholder=" confirmar senha"
-              placeholderTextColor="#1777AB"
-            />
-          </View>
-
-          <View style={styles.Formulario}>
-            <Image source={cpf} />
-            <TextInput
-              style={styles.login}
-              placeholder=" CPF/CNPJ"
-              placeholderTextColor="#1777AB"
-            />
-          </View>
-
-          <View style={{ flexDirection: "column" }}>
-            <View style={{ flexDirection: "row", right: "65.5%" }}>
-              <Image source={estado} />
-              <Picker
-                placeholder="Estado"
+        <KeyboardAvoidingView style={styles.Campo2} behavior="padding" enabled>
+          <View>
+            <View style={styles.Formulario}>
+              <Image source={email} />
+              <TextInput
+                style={styles.login}
+                placeholder=" e-mail"
                 placeholderTextColor="#1777AB"
-                selectedValue={this.state.estado}
-                style={{ height: 50, width: 110 }}
-                onValueChange={(itemValue, itemIndex) =>
-                  this.setState({ estado: itemValue })
-                }
-              >
-                <Picker.Item label="Bahia" value="BA" />
-                <Picker.Item label="Recife" value="RE" />
-              </Picker>
+              />
             </View>
-            <View style={{ flexDirection: "row", right: "65.5%" }}>
-              <Image source={cidade} />
-              <Picker
-                placeholder="Estado"
+
+            <View style={styles.Formulario}>
+              <Image source={nome} />
+              <TextInput
+                style={styles.login}
+                placeholder=" nome/razão social"
                 placeholderTextColor="#1777AB"
-                selectedValue={this.state.cidade}
-                style={{ height: 50, width: 120 }}
-                onValueChange={(itemValue, itemIndex) =>
-                  this.setState({ cidade: itemValue })
-                }
-              >
-                <Picker.Item label="Ilhéus" value="Ih" />
-                <Picker.Item label="Itabuna" value="Itb" />
-              </Picker>
+              />
             </View>
+
+            <View style={styles.Formulario}>
+              <Image source={key} />
+              <TextInput
+                style={styles.login}
+                placeholder=" senha"
+                placeholderTextColor="#1777AB"
+              />
+            </View>
+
+            <View style={styles.Formulario}>
+              <Image source={key2} />
+              <TextInput
+                style={styles.login}
+                placeholder=" confirmar senha"
+                placeholderTextColor="#1777AB"
+              />
+            </View>
+
+            <View style={styles.Formulario}>
+              <Image source={cpf} />
+              <TextInput
+                style={styles.login}
+                placeholder=" CPF/CNPJ"
+                placeholderTextColor="#1777AB"
+              />
+            </View>
+
+            <View style={{ flexDirection: "column" }}>
+              <View style={{ flexDirection: "row", right: "3%" }}>
+                <Image source={estado} />
+                <Picker
+                  placeholder="Estado"
+                  placeholderTextColor="#1777AB"
+                  selectedValue={this.state.estado}
+                  style={{ height: 50, width: 110 }}
+                  onValueChange={(itemValue, itemIndex) =>
+                    this.setState({ estado: itemValue })
+                  }
+                >
+                  <Picker.Item label="Bahia" value="BA" />
+                  <Picker.Item label="Recife" value="RE" />
+                </Picker>
+              </View>
+              <View style={{ flexDirection: "row", right: "3%" }}>
+                <Image source={cidade} />
+                <Picker
+                  placeholder="Estado"
+                  placeholderTextColor="#1777AB"
+                  selectedValue={this.state.cidade}
+                  style={{ height: 50, width: 120 }}
+                  onValueChange={(itemValue, itemIndex) =>
+                    this.setState({ cidade: itemValue })
+                  }
+                >
+                  <Picker.Item label="Ilhéus" value="Ih" />
+                  <Picker.Item label="Itabuna" value="Itb" />
+                </Picker>
+              </View>
+            </View>
+
+            <TouchableOpacity
+              activeOpacity={1.0}
+              accessible={true}
+              accessibilityLabel="Botao Proximo"
+              style={styles.login2}
+              onPress={() => this.props.navigation.navigate("TelaEscolher")}
+            >
+              <Image source={btnProximo} style={{left:'30%'}}/>
+            </TouchableOpacity>
           </View>
-
-          <TouchableOpacity
-            activeOpacity={1.0}
-            accessible={true}
-            accessibilityLabel="Botao Proximo"
-            style={styles.login2}
-            onPress={() => this.props.navigation.navigate("TelaEscolher")}
-          >
-            <Image source={btnProximo}  />
-          </TouchableOpacity>
-        </View>
-
+        </KeyboardAvoidingView>
         <View style={styles.Campo3}>
           <Image source={btnFacebook} style={styles.btnFaceGoogle} />
           <Image source={btnGoogle} style={styles.btnFaceGoogle} />
@@ -215,7 +217,6 @@ const styles = StyleSheet.create({
 
   // rest of the styles
 });
-
 
 // const RootStack = createStackNavigator(
 //   {

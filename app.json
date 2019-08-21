@@ -1,30 +1,25 @@
 {
   "expo": {
-    "name": "PetDoo",
-    "slug": "petDoo",
-    "privacy": "public",
-    "sdkVersion": "34.0.0",
-    "platforms": [
-      "ios",
-      "android",
-      "web"
-    ],
-    "version": "1.0.0",
-    "orientation": "portrait",
+    "name": "Petdoo",
     "icon": "./assets/icon.png",
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
-    "updates": {
-      "fallbackToCacheTimeout": 0
-    },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "version": "1.0.0",
+    "slug": "petDoo",
+    "sdkVersion": "34.0.0",
     "ios": {
-      "supportsTablet": true
-    }
+      "bundleIdentifier": "com.carvalhodev.petdoo"
+    },
+    "android": {
+      "package": "com.carvalhodev.petdoo"
+    },
+    "platforms": [
+      "android",
+      "ios"
+    ],
+    "description": ""
   }
 }

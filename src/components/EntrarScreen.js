@@ -4,7 +4,8 @@ import {
   Image,
   StyleSheet,
   TextInput,
-  TouchableOpacity
+  TouchableOpacity,
+  KeyboardAvoidingView
 } from "react-native";
 
 const Logo = require("../../imgs/logo_petdoo.png");
@@ -30,29 +31,31 @@ export default class EntrarScreen extends React.Component {
           <Image source={backEntrar} />
           <Image source={Logo} style={styles.logo} />
         </View>
+        <KeyboardAvoidingView style={styles.Campo2} behavior="padding" enabled>
+          <View>
+            <View style={styles.Emailkey}>
+              <Image source={email} />
+              <TextInput
+                style={styles.login}
+                placeholder=" e-mail"
+                placeholderTextColor="#1777AB"
+              />
+            </View>
 
-        <View style={styles.Campo2}>
-          <View style={styles.Emailkey}>
-            <Image source={email} />
-            <TextInput
-              style={styles.login}
-              placeholder=" e-mail"
-              placeholderTextColor="#1777AB"
-            />
+            <View style={styles.Emailkey}>
+              <Image source={key} />
+              <TextInput
+                style={styles.login}
+                placeholder=" ********"
+                placeholderTextColor="#1777AB"
+              />
+            </View>
+            <View style={styles.login2}>
+              <Image source={recuperar_senha} style={{marginBottom:10}} />
+              <Image source={btnEntrar}  />
+            </View>
           </View>
-
-          <View style={styles.Emailkey}>
-            <Image source={key} />
-            <TextInput
-              style={styles.login}
-              placeholder=" ********"
-              placeholderTextColor="#1777AB"
-            />
-          </View>
-
-          <Image source={recuperar_senha} style={styles.login2} />
-          <Image source={btnEntrar} style={styles.login2} />
-        </View>
+        </KeyboardAvoidingView>
 
         <View style={styles.Campo3}>
           <TouchableOpacity
@@ -71,7 +74,7 @@ export default class EntrarScreen extends React.Component {
             style={styles.btnFaceGoogle}
             onPress={() => this.props.navigation.navigate("LoginLopi")}
           >
-            <Image source={btnGoogle}  />
+            <Image source={btnGoogle} />
           </TouchableOpacity>
         </View>
       </View>
@@ -84,7 +87,7 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: "row",
     alignItems: "center",
-    left:'6%',
+    left: "6%",
     justifyContent: "space-around"
   },
   Campo2: {
@@ -116,7 +119,8 @@ const styles = StyleSheet.create({
     fontSize: 20
   },
   login2: {
-    margin: 10
+    margin: 10,
+    alignItems: "center"
   },
   logo: {
     position: "absolute",
